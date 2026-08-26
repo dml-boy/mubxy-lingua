@@ -1,9 +1,102 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@theme {
+  /* =========================================
+     PRIMARY COLORS
+  ========================================= */
+  --color-lingua-purple: #6c4ef5;
+  --color-lingua-deep-purple: #5b3bf6;
+  --color-lingua-blue: #4d88ff;
+  --color-lingua-green: #21c16b;
+
+  /* =========================================
+     SEMANTIC COLORS
+  ========================================= */
+  --color-success: #21c16b;
+  --color-warning: #ffcb00;
+  --color-streak: #ff8a00;
+  --color-error: #ff4d4f;
+  --color-info: #4d88ff;
+
+  /* =========================================
+     NEUTRAL COLORS
+  ========================================= */
+  --color-text-primary: #001328;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-surface: #f6f7fb;
+  --color-background: #ffffff;
+
+  --font-sans: Poppins_400Regular, ui-sans-serif, system-ui, sans-serif;
+  --font-medium: Poppins_500Medium, ui-sans-serif, system-ui, sans-serif;
+  --font-semibold: Poppins_600SemiBold, ui-sans-serif, system-ui, sans-serif;
+  --font-bold: Poppins_700Bold, ui-sans-serif, system-ui, sans-serif;
+
+  --text-h1: 32px;
+  --text-h1--line-height: calc(32px * 1.2);
+  --text-h2: 24px;
+  --text-h2--line-height: calc(24px * 1.3);
+  --text-h3: 20px;
+  --text-h3--line-height: calc(20px * 1.3);
+  --text-h4: 16px;
+  --text-h4--line-height: calc(16px * 1.4);
+  --text-body-large: 16px;
+  --text-body-large--line-height: calc(16px * 1.6);
+  --text-body-medium: 14px;
+  --text-body-medium--line-height: calc(14px * 1.6);
+  --text-body-small: 13px;
+  --text-body-small--line-height: calc(13px * 1.6);
+  --text-caption: 11px;
+  --text-caption--line-height: calc(11px * 1.4);
+}
+
+@layer utilities {
+  .btn {
+    @apply rounded-2xl items-center justify-center py-3 px-4 border-b-4 active:border-b-0 active:mt-1;
+  }
+  
+  .btn-primary {
+    @apply bg-lingua-purple border-lingua-deep-purple;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface border-border;
+  }
+
+  .text-h1 {
+    @apply text-h1 font-bold text-text-primary;
+  }
+
+  .text-h2 {
+    @apply text-h2 font-semibold text-text-primary;
+  }
+
+  .text-h3 {
+    @apply text-h3 font-semibold text-text-primary;
+  }
+
+  .text-body {
+    @apply text-body-medium font-sans text-text-secondary;
+  }
+}
+
+/* Platform-specific font families */
+@media android {
+  :root {
+    --font-mono: monospace;
+    --font-rounded: normal;
+    --font-serif: serif;
+    --font-sans: normal;
+  }
+}
+
+@media ios {
+  :root {
+    --font-mono: ui-monospace;
+    --font-serif: ui-serif;
+    --font-sans: system-ui;
+    --font-rounded: ui-rounded;
+  }
 }
