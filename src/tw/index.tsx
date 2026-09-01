@@ -20,7 +20,7 @@ import {
 export const Link = (
   props: React.ComponentProps<typeof RouterLink> & { className?: string }
 ) => {
-  return useCssElement(RouterLink, props, { className: "style" });
+  return useCssElement(RouterLink as any, props, { className: "style" }) as any;
 };
 
 Link.Trigger = RouterLink.Trigger;
@@ -59,10 +59,10 @@ export const ScrollView = (
     contentContainerClassName?: string;
   }
 ) => {
-  return useCssElement(RNScrollView, props, {
+  return useCssElement(RNScrollView as any, props, {
     className: "style",
     contentContainerClassName: "contentContainerStyle",
-  });
+  }) as any;
 };
 ScrollView.displayName = "CSS(ScrollView)";
 
@@ -90,18 +90,18 @@ export const AnimatedScrollView = (
     contentContainerClassName?: string;
   }
 ) => {
-  return useCssElement(Animated.ScrollView, props, {
+  return useCssElement(Animated.ScrollView as any, props, {
     className: "style",
     contentClassName: "contentContainerStyle",
     contentContainerClassName: "contentContainerStyle",
-  });
+  }) as any;
 };
 
 // TouchableHighlight with underlayColor extraction
 function XXTouchableHighlight(
   props: React.ComponentProps<typeof RNTouchableHighlight>
 ) {
-  const { underlayColor, ...style } = StyleSheet.flatten(props.style) || {};
+  const { underlayColor, ...style } = (StyleSheet.flatten(props.style) || {}) as any;
   return (
     <RNTouchableHighlight
       underlayColor={underlayColor}
